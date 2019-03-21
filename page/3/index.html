@@ -90,7 +90,7 @@
             
               <li class="archive-list-container">
                 <a href="javascript:;">归档</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">22</span></li></ul>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">27</span></li></ul>
               </li>
             
           
@@ -143,6 +143,257 @@
         <div style="max-width: 1000px">
       
           
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2019/03/03/Linux常用命令大全/">
+  Linux常用命令大全
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2019/03/03/Linux常用命令大全/"><span class="article-date">
+  2019-03-03
+</span>
+</a>
+        
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <p>Linux常用命令（测试开发）</p>
+<p><a href="https://www.cnblogs.com/Javame/p/3968343.html" target="_blank" rel="noopener">https://www.cnblogs.com/Javame/p/3968343.html</a></p>
+<p>1、初级常用命令整理</p>
+<p>vim   文件名         编辑文件</p>
+<p>cat     文件名    显示文件内容</p>
+<p>chmod  664 文件名    修改文件权限为 -rw-  rw-  r–</p>
+<p>ls  la    查看当前目录下的所有内容包含隐藏的内容</p>
+<p>ls  l    查看当前目录下的内容的详细信息</p>
+<p>ls    查看当前目录下的内容</p>
+<p>touch  文件名    创建文件</p>
+<p>tar   文件</p>
+<p>source  文件名    在当前bash环境下读取并执行文件中的命令</p>
+<p>pwd    显示当前目录</p>
+<p>sync    在执行reboot或者shutdown等命令时一定要首先使用sync将内存中的信息同步到磁盘上，以免造成数据丢失</p>
+<p>su  用户名    切换到某个用户</p>
+<p>2、进程与通信</p>
+<p>ps   查看当前进程</p>
+<p>sleep  几秒    使当前状态延迟几秒</p>
+<p>kill  信号   进程id    发送信号给某个进程使其状态发生改变</p>
+<p>netstat    查看网络状态</p>
+<p>ping  ip地址    使用icmp协议查看该ip地址是否能联通</p>
+<p>route  print    查看路由表的全部内容</p>
+<p>ifconfig    网卡信息</p>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2019/03/03/二叉树的遍历/">
+  二叉树的遍历
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2019/03/03/二叉树的遍历/"><span class="article-date">
+  2019-03-03
+</span>
+</a>
+        
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <p>二叉树的遍历：将非线性结构转换为线性结构</p>
+<p>树的深度遍历：前，中，后序遍历；一般使用栈，栈的深度一般为树的深度</p>
+<p>树的层次遍历：使用队列实现</p>
+<p>中序、前序；中序、后序可唯一确定一棵二叉树</p>
+<p>前序和后序确定不了</p>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2019/03/03/使用Django框架的forum开发的知识点总结/">
+  使用Django框架的forum开发的知识点总结
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2019/03/03/使用Django框架的forum开发的知识点总结/"><span class="article-date">
+  2019-03-03
+</span>
+</a>
+        
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/django/">django</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <p>1、django工程目录结构优化待读：<br><a href="http://www.loonapp.com/blog/11/" target="_blank" rel="noopener">http://www.loonapp.com/blog/11/</a><br>2、0.0.0.0代表网卡上所有的ip地址<br>3、ctrl + Tab切换浏览器tab<br>alt + Tab切换当前任务<br>ctrl + T新建一个窗口<br>ctrl + /注释<br>4、启动服务器：python manage.py runserver 0.0.0.0:8000<br>$ python manage.py migrate # 创建表结构<br>$ python manage.py makemigrations TestModel # 让 Django 知道我们在我们的模型有一些变更<br>$ python manage.py migrate TestModel # 创建表结构<br>5、为防止密码泄露，可使用变量代替密码，在本地配置环境变量，设置变量的值<br>6、git reset –hard FETCH_HEAD返回到上一次pull成功的状态<br>7、jason为数据格式，取代xml的存在，为轻量级的数据交换格式<br>ajax为快速创建动态网页、实现页面和web服务器之间数据的异步传输的技术<br>JQuery是一个兼容多个浏览器的javascript框架<br>8、在python中is判断地址是否相等，==判断值是否相等；在java中刚好与之相反<br>9、url路由问题，django当系统功能多样时，应使用分级路由<br>10、由于http协议本身是无状态的，cookie和session都可以记录客户端的状态<br>cookie是一种数据存储技术，将一段文本保存在客户端，cookie存在不可靠和不安全的特性<br>session是在服务器存储少量的信息，客户端发送请求时，在HTTP的请求头中，包含一行cookie信息。<br>服务器根据cookie信息得到session id，再根据session id找到对应的session，因此即使用户关闭了浏览器，<br>session仍然将保持到会话过期</p>
+<p> 11、django中model文件：<a href="https://www.cnblogs.com/pythonxiaohu/p/5807059.html" target="_blank" rel="noopener">https://www.cnblogs.com/pythonxiaohu/p/5807059.html</a></p>
+<p>12、<a href="http://www.cnblogs.com/yanglang/p/6697657.html%E8%A1%A8%E6%A0%BC" target="_blank" rel="noopener">http://www.cnblogs.com/yanglang/p/6697657.html表格</a><br>13、ajax异步机制<br>14、自定义中间件</p>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2019/03/02/数据结构之排序/">
+  数据结构之排序
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2019/03/02/数据结构之排序/"><span class="article-date">
+  2019-03-02
+</span>
+</a>
+        
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <p><strong>冒泡排序：</strong>最稳定的排序，时间复杂度为O(n^2)</p>
+<p><strong>选择排序：</strong>不稳定的排序，时间复杂度为O(n^2)</p>
+<p><strong>插入排序：</strong>稳定的排序，时间复杂度为O(n^2)，当数组为有序时，排序最快</p>
+<p><strong>快速排序：</strong>不稳定的排序，时间复杂度为O(nlog₂n)，对于乱序排序时间最快</p>
+<p><strong>堆排序：</strong>等待复习中</p>
+<p>当原表有序或基本有序时，直接插入排序和冒泡排序将大大减少比较次数和移动记录的次数，时间复杂度可降至O（n）；</p>
+<p>而快速排序则相反，当原表基本有序时，将蜕化为冒泡排序，时间复杂度提高为O（n2）；</p>
+<p>原表是否有序，对简单选择排序、堆排序、归并排序和基数排序的时间复杂度影响不大。</p>
+<p>当原表有序时，快速排序为何会退化成冒泡排序呢？</p>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2019/03/02/数据结构之树/">
+  数据结构之树
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2019/03/02/数据结构之树/"><span class="article-date">
+  2019-03-02
+</span>
+</a>
+        
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h4 id="树"><a href="#树" class="headerlink" title="树"></a>树</h4><p><strong>树的定义：</strong>除根结点之外的其余数据元素被分为m（m≥0）个互不相交的集合T1，T2，……Tm-1，其中每一个集合Ti（1&lt;=i&lt;=m）本身也是一棵树</p>
+<p><strong>节点的度：</strong>一个节点含有的子树的个数称为该节点的度；</p>
+<p><strong>树的度：</strong>一棵树中，最大的节点的度称为树的度；</p>
+<p><strong>节点的层次：</strong>从根开始定义起，根为第1层，根的子节点为第2层，以此类推；</p>
+<p><strong>树的高度或深度：</strong>从根节点到叶子节点的所有路径中最长的路径的边数</p>
+<h4 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h4><p><strong>定义：</strong>每个节点最多有两棵子树的树</p>
+<p><strong>1、一般二叉树的性质</strong><br>性质1、在非空二叉树的i层上，至多有2^i个结点。<br>性质2、高度为K的二叉树中，最多有2^(k+1)-1个结点。<br>性质3、对于任何一棵非空的二叉树，如果叶结点的个数为n0，度为2的结点个数为n2，则有n0=n2+1。</p>
+<p><strong>2、满二叉树</strong><br>定义：在一棵二叉树中。如果所有分支结点都存在左子树和右子树，并且所有叶子都在同一层上，这样的二叉树称为满二叉树。<br><strong>3、完全二叉树</strong><br>定义：对一颗具有n个结点的二叉树按层编号，如果编号为i(1&lt;=i&lt;=n)的结点与同样深度的满二叉树中编号为i的结点在二叉树中位置完全相同，则这棵二叉树称为完全二叉树。</p>
+<p><strong>a、</strong>具有n的结点的完全二叉树的深度为log2n+1.</p>
+<p>满二叉树是完全二叉树，对于深度为k的满二叉树中结点数量是2k-1 = n，完全二叉树结点数量肯定最多2k-1,同时完全二叉树倒数第二层肯定是满的（倒数第一层有结点，那么倒是第二层序号和满二叉树相同），所以完全二叉树的结点数最少大于少一层的满二叉树，为2k-1-1。</p>
+<p>根据上面推断得出： 2k-1-1&lt; n=&lt;2k-1，因为结点数Nn为整数那么n&lt;=2k-1可以推出n&lt;=2k ,n&gt;2k-1-1可以推出 n&gt;=2k-1,所以2k-1&lt;n&lt;=2k 。即可得k-1&lt;=log2n&lt;k 而k作为整数因此k=[log2n]+1。</p>
+<p><strong>b、</strong>如果有一颗有n个节点的完全二叉树的节点按层次序编号，对任一层的节点i（1&lt;=i&lt;=n）有</p>
+<p> 1.如果i=1，则节点是二叉树的根，无双亲，如果i&gt;1，则其双亲节点为[i/2]，向下取整</p>
+<p> 2.如果2i&gt;n那么节点i没有左孩子，否则其左孩子为2i</p>
+<p> 3.如果2i+1&gt;n那么节点没有右孩子，否则右孩子为2i+1</p>
+<h4 id="4、平衡二叉树："><a href="#4、平衡二叉树：" class="headerlink" title="4、平衡二叉树："></a>4、平衡二叉树：</h4><p><strong>定义：</strong>左右子树高度相差不超过1，且都为平衡二叉树。</p>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
 
   
   

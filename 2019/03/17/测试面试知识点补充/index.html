@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="小宝宝的博客">
 <meta property="og:description" content="一、测试用例设计方法 黑盒测试用例（优先）+白盒测试用例（补充）=完整测试用例 黑盒测试用例的编写 1）等价类划分 2）边界值分析法 3）因果图\判定表法：各种独立输入的组合导致各种独立输出 4）场景法： 用户正确操作的业务过程—验证软件的业务功能是否正确实现 模拟用户错误操作的情形—验证软件的异常处理能力（健壮性） 5）错误推测法：一般根据以往经验编写测试用例，https://blog.csdn">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-17T13:11:51.299Z">
+<meta property="og:updated_time" content="2019-03-21T03:11:15.476Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="测试面试知识点补充">
 <meta name="twitter:description" content="一、测试用例设计方法 黑盒测试用例（优先）+白盒测试用例（补充）=完整测试用例 黑盒测试用例的编写 1）等价类划分 2）边界值分析法 3）因果图\判定表法：各种独立输入的组合导致各种独立输出 4）场景法： 用户正确操作的业务过程—验证软件的业务功能是否正确实现 模拟用户错误操作的情形—验证软件的异常处理能力（健壮性） 5）错误推测法：一般根据以往经验编写测试用例，https://blog.csdn">
@@ -94,7 +94,7 @@
             
               <li class="archive-list-container">
                 <a href="javascript:;">归档</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">22</span></li></ul>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">27</span></li></ul>
               </li>
             
           
@@ -184,8 +184,7 @@
 <p><strong>1、安全测试</strong></p>
 <ol>
 <li>检查登录生成的Cookie是否为httpOnly，这是为了防止XSS（跨站脚本攻击），窃取cooki内容。</li>
-<li>用户名和密码的的输入框，应该禁止输入脚本 （防止XSS攻击）</li>
-<li>用户名和密码的输入框，应该屏蔽SQL 注入攻击</li>
+<li>用户名和密码的的输入框，应该禁止输入脚本 （防止SQL注入）</li>
 <li>错误登录的次数限制（防止暴力登录）</li>
 <li>用户名和密码是否通过加密的方式，发送给服务器</li>
 <li>用户明和密码的验证，应该是服务器端验证，而不能单单是在客户端用JavaScript</li>
@@ -196,9 +195,19 @@
 </ol>
 <p><strong>2. 可用性测试</strong></p>
 <ol>
-<li>是否可以全用键盘操作——快捷键</li>
-<li>输入用户名、密码后，按回车能否登录</li>
+<li><p>是否可以全用键盘操作——快捷键</p>
+</li>
+<li><p>输入用户名、密码后，按回车能否登录</p>
+</li>
 </ol>
+<p>三、测试对象</p>
+<p>1.用户需求文档（ps:理解软件需求，对于用户测试人员TE比较重要）</p>
+<p>2.软件概要设计（设计文档）</p>
+<p>3.软件源代码</p>
+<p>4.数据</p>
+<p>5.可运行程序</p>
+<p>6.软件运行环境（ps:测试提交Bug时，应该注明当前环境。例如window7+64 IE10 1920*1080之类的（兼容性问题））</p>
+<p>即：源程序，目标程序，数据及相关文档</p>
 
   </div>
   <footer class="article-footer">

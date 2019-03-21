@@ -90,7 +90,7 @@
             
               <li class="archive-list-container">
                 <a href="javascript:;">归档</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">22</span></li></ul>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">27</span></li></ul>
               </li>
             
           
@@ -143,6 +143,321 @@
         <div style="max-width: 1000px">
       
           
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2019/03/16/java笔试面试复习准备/">
+  java笔试面试复习准备
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2019/03/16/java笔试面试复习准备/"><span class="article-date">
+  2019-03-16
+</span>
+</a>
+        
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <p>1、脚本语言（解释型语言）：一条一条语句通过解释器解释执行，即边解释边执行</p>
+<p>2、编译型语言：整体编译成二进制代码文件后，链接，执行</p>
+<p>3、android 的底层核心是linux</p>
+<p>4、</p>
+<p>JVM ：英文名称（Java Virtual Machine） Java 虚拟机。执行字节码文件，jvm 是 Java 能够跨平台的核心</p>
+<p>JRE ：英文名称（Java Runtime Environment）Java 运行时环境。包含jvm 的标准实现和 Java 的一些基本类库。</p>
+<p>JDK ：英文名称（Java Development Kit），Java 开发工具包。</p>
+<p>JDK&gt;JRE&gt;JVM。</p>
+<p>5、编译器将java源文件编译成字节码文件，jvm使用类加载器将字节码文件加载到内存，</p>
+<p>再使用字节码验证器验证其合法性</p>
+<p>6、java基本数据类型（八种）：boolean，byte，short，int，long，float，double，char</p>
+<p>7、switch  case语句中break注意：若不存在break，则找到匹配的case后还会执行后面case的语句，不论后面的case是否匹配，如果未找到匹配的case直接进入default，case后的必须是常量</p>
+<p>运算符的优先级问题</p>
+<p>8、string类型比较地址是否相等：==</p>
+<p>比较内容是否相同：equals()</p>
+<p>9、数组创建后，数值型默认赋值为0，字符型默认为‘\u0000’，布尔型默认为false</p>
+<p>10、  <strong>⑴强引用（StrongReference）</strong><br>强引用是使用最普遍的引用。如果一个对象具有强引用，那垃圾回收器绝不会回收它。当内存空间不足，Java虚拟机宁愿抛出OutOfMemoryError错误，使程序异常终止，也不会靠随意回收具有强引用的对象来解决内存不足的问题。  ps：强引用其实也就是我们平时A a = new A()这个意思。</p>
+<p><strong>⑵软引用（SoftReference）</strong><br>如果一个对象只具有软引用，则内存空间足够，垃圾回收器就不会回收它；如果内存空间不足了，就会回收这些对象的内存。只要垃圾回收器没有回收它，该对象就可以被程序使用。软引用可用来实现内存敏感的高速缓存（下文给出示例）。</p>
+<p><strong>⑶弱引用（WeakReference）</strong><br>弱引用与软引用的区别在于：只具有弱引用的对象拥有更短暂的生命周期。在垃圾回收器线程扫描它所管辖的内存区域的过程中，一旦发现了只具有弱引用的对象，不管当前内存空间足够与否，都会回收它的内存。不过，由于垃圾回收器是一个优先级很低的线程，因此不一定会很快发现那些只具有弱引用的对象。</p>
+<p><strong>⑷虚引用（PhantomReference）</strong><br>“虚引用”顾名思义，就是形同虚设，与其他几种引用都不同，虚引用并不会决定对象的生命周期。如果一个对象仅持有虚引用，那么它就和没有任何引用一样，在任何时候都可能被垃圾回收器回收。<br>虚引用主要用来跟踪对象被垃圾回收器回收的活动。  </p>
+<p>11、java中内存管理</p>
+<p>JVM的内存可分为3个区：<strong>堆(heap)、栈(stack)和方法区(method，也叫静态区)：</strong></p>
+<p><strong>堆区:</strong> （用于动态内存分配）<br>jvm只有一个堆区(heap)，且被所有线程共享，堆中只存放对象本身和数组本身；</p>
+<p><strong>栈区:</strong><br>每个线程包含一个栈区，不共享，保存基本数据类型和对象的引用；<br>栈分为3个部分：基本类型变量区、执行环境上下文、操作指令区(存放操作指令)；</p>
+<p><strong>方法区（静态区）:</strong><br>所有线程共享，方法区中包含的都是在整个程序中永远唯一的元素，是类的原始代码存放处，存放static变量。</p>
+<p> JVM的进程中，每个线程都会拥有一个方法调用栈，用来跟踪线程运行中一系列的方法调用过程</p>
+<p>12、文件中只能有一个公共类，且与文件名同名</p>
+<p>13、构造方法：无返回值，可以重载，必须是public，在new时调用构造方法</p>
+<p>14、引用类型中的变量会被默认赋值，数值型为0，布尔型为false，对象为null，字符型为’\u0000’</p>
+<p>而方法中的局部变量并没有赋予默认值</p>
+<p>15、可见性修饰符</p>
+<ul>
+<li>public 所有可见</li>
+<li>private 仅对本类可见</li>
+<li>default 本包可见(没有修饰符)</li>
+<li>protected 本包和其他包的子类可见</li>
+</ul>
+<p>16、this的用法，引用自身对象，在构造方法中引用其他构造方法</p>
+<p>17、string：一旦创建，内容不可改变</p>
+<p>​        String：适用于少量的字符串操作的情况</p>
+<p>　　StringBuilder：对对象直接更改，线程不安全</p>
+<p>　　StringBuffer：对对象直接更改，线程安全</p>
+<p>在这方面运行速度快慢为：StringBuilder &gt; StringBuffer &gt; String</p>
+<p>18、父类中的构造方法不会被子类继承，只能使用super在子类的构造方法中调用，若不屑super()，子类构造方法也会默认先调用父类的无参构造方法</p>
+<p>19、可见的方法，和非静态方法才能被重写</p>
+<p>20、多态：父类型的变量可以引用子类型的对象</p>
+<p>动态绑定：引用调用哪个变量由对象的实际类型决定，而不是声明类型</p>
+<p>21、ArrayList和vector :使用数组实现，查找方便，但插入和删除需要移动大量元素，容量不够时，还需要扩容</p>
+<p>LinkList：使用循环双向链表实现，插入和删除比较方便</p>
+<p>22、final修饰的类和方法不能被重写和扩展，子类只能保持或者扩大父类中方法的可访问性</p>
+<p>23、异常的根类：Throwable</p>
+<p>24、</p>
+<p>抽象类：1、可以不包含抽象方法</p>
+<p>2、子类继承需全部实现抽象类中的抽象方法，否则必须被声明为抽象类</p>
+<p>3、抽象方法必须被声明为public或者时protected</p>
+<p>接口：1、接口中的所有方法必须是抽象方法</p>
+<p>2、接口中的变量声明为public static final，可以省略不写，但是默认为这个</p>
+<p>3、接口中不能含有静态代码块以及静态方法，而抽象类可以有静态代码块和静态方法；</p>
+<p>4、接口中的方法必须是public abstract类型的，可以省略不写，但是默认为这个</p>
+<p>5、接口中的方法必须全部被子类实现</p>
+<p>抽象类是对事务的抽象，接口是行为的抽象</p>
+<p>25、jvm：类加载器将字节码装进内存的方法区，字节码验证器验证准确性，解释器执行文件</p>
+<p>26、抽象类和接口的区别</p>
+<p>a.一个类只能继承单个类，但是可以实现多个接口</p>
+<p>b.抽象类中可以有构造方法，接口中不能有构造方法</p>
+<p>c.抽象类中的所有方法并不一定要是抽象的，你可以选择在抽象类中实现一些基本的方法。而接口要求所有的方法都必须是抽象的</p>
+<p>d.抽象类中可以包含静态方法，接口中不可以</p>
+<p>e.抽象类中可以有普通成员变量，接口中不可以</p>
+<p>27、线程，线程池：</p>
+<p>1）run()方法用来运行线程，但只是作为主线程中的普通方法来调用，start()方法用来创建新的线程，会自动执行run()来达到多线程的目的</p>
+<p>2）线程池：程序启动时，创建的若干线程来响应处理，因为创建线程需要时间，而且每个进程创建的线程数目有限，所以引入线程池的概念</p>
+<p>3）在java中要想实现多线程的方法：继续Thread类，实现Runable接口，实现Callable接口。</p>
+<p>28、垃圾回收机制：引用计数法，将没有被引用的内存地址进行回收</p>
+<p>29、多态实现的必要条件：继承、方法重写、父类引用指向子类对象</p>
+<p>30、集合：set，linklist，vector，arraylist，map</p>
+<p>set：元素唯一，hashset底层使用哈希表，treeset底层使用二叉树（适用于元素排序）；</p>
+<p>linklist：底层使用循环链表，查询慢，增删快，线程安全低</p>
+<p>arraylist：底层使用数组，查询快，增删慢，线程安全低</p>
+<p>vector：底层使用数组，查询快，增删慢，线程安全高</p>
+<p>map：键值对，hashmap底层使用哈希表</p>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2019/03/14/堆排序/">
+  堆排序
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2019/03/14/堆排序/"><span class="article-date">
+  2019-03-14
+</span>
+</a>
+        
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法与数据结构/">算法与数据结构</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <p>算法思路：</p>
+<p>构造大顶堆</p>
+<p>1、以序号最大的非叶子节点为根节点，使得该根节点的值是该子树中最大的</p>
+<p>2、依次对每个非叶子节点都进行如上调整，使得每棵子树都是大顶堆</p>
+<p>堆调整</p>
+<p>1、输出根节点的值，交换根节点和最后一个节点的值</p>
+<p>2、对余下的节点，从根节点开始进行堆调整</p>
+<p>3、重复1，2；直到余下的节点变为1为止，则不再需要交换调整</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">adjust</span><span class="params">(<span class="keyword">int</span> h, <span class="keyword">int</span> *a, <span class="keyword">int</span> len)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(len &lt;= <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">int</span> max = h;</span><br><span class="line">    <span class="keyword">if</span>(<span class="number">2</span> * h + <span class="number">1</span> &lt;= len)</span><br><span class="line">    &#123;<span class="comment">//左右子节点都存在的情况下，选出最大值的节点的序号</span></span><br><span class="line">        max = a[<span class="number">2</span> * h] &gt; a[<span class="number">2</span> * h + <span class="number">1</span>]? <span class="number">2</span> * h: <span class="number">2</span> * h + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(a[max] &lt;= a[h])</span><br><span class="line">            max =  h;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(<span class="number">2</span> * h &lt;= len)</span><br><span class="line">    &#123;<span class="comment">//只存在左子节点的情况下，选出最大值的节点的序号</span></span><br><span class="line">        max = <span class="number">2</span> * h;</span><br><span class="line">        <span class="keyword">if</span>(a[max] &lt;= a[h])</span><br><span class="line">            max =  h;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(max != h)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> temp = a[max];</span><br><span class="line">        a[max] = a[h];</span><br><span class="line">        a[h] = temp;</span><br><span class="line">        adjust(max, a, len);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">50</span>];</span><br><span class="line">    <span class="keyword">int</span> len;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; len;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= len; i++)</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    从最后一个非叶子节点开始，对每个子树进行调整，</span></span><br><span class="line"><span class="comment">    使每棵子树成为大顶堆，直至到根节点</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = len / <span class="number">2</span>; i &gt;= <span class="number">1</span>; i--)</span><br><span class="line">        adjust(i, a, len);</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    输出根节点</span></span><br><span class="line"><span class="comment">    将大顶堆的根节点和最后一个叶子节点进行交换</span></span><br><span class="line"><span class="comment">    再从根节点开始调整，使之成为大顶堆</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">while</span>(len &gt;= <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; a[<span class="number">1</span>] &lt;&lt; <span class="string">"  "</span>;</span><br><span class="line">        <span class="keyword">int</span> temp = a[<span class="number">1</span>];</span><br><span class="line">        a[<span class="number">1</span>] = a[len];</span><br><span class="line">        a[len] = temp;</span><br><span class="line">        len--;</span><br><span class="line">        adjust(<span class="number">1</span>, a, len);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2019/03/12/切金条问题/">
+  切金条问题
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2019/03/12/切金条问题/"><span class="article-date">
+  2019-03-12
+</span>
+</a>
+        
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面试/">面试</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <p>题目说明：<br>一块金条切成两半，是需要花费和长度数值一样的铜板的。比如 长度为20的 金条，<br>不管切成长度多大的两半，都要花费20个铜板。一群人想整分整块金 条，怎么分最省铜板？ </p>
+<p>解题思路：</p>
+<p>1、哈夫曼树是使得各个符号出现的概率乘以对应的编码长度之和最小的一颗生成树；换而言之，</p>
+<p>即为传送的字符串的平均编码长度最短，也即为各个叶子节点权重乘以对应的深度最小</p>
+<p>2、在这道题中，每切一次，只能将金条切成两份，与二叉树类似，用节点来存储金条的长度</p>
+<p>每个叶子节点都是最后要分成的金条的长度，非叶子节点是每切一次付的铜钱，非叶子节点的和</p>
+<p>即为每个叶子节点的权重乘以其对应的深度，因此和哈夫曼树类似，只需要构造哈夫曼树即可</p>
+<p>但这里只需要模拟构造过程，算出和即可</p>
+<p>3、编程思路：</p>
+<p>​    将金条的长度按从小到达的进行排序，取出最小的两个数进行构造，求出和temp，s+=temp，并删除这两个数，将temp和余下的数进行排序，取出最小的两个数进行构造。。。。以此类推，直到最后只剩下一个数，此时到达根节点</p>
+<p>​    由于需要经常排序，插入，删除，因此使用链表结构会比较适合</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> x;</span><br><span class="line">    Node* next;</span><br><span class="line">&#125;*LinkNode;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(LinkNode p, LinkNode head)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(LinkNode q = head; ; q = q-&gt;next)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(q-&gt;next == <span class="literal">nullptr</span> || q-&gt;next-&gt;x &gt;= p-&gt;x)</span><br><span class="line">        &#123;</span><br><span class="line">            p-&gt;next = q-&gt;next;</span><br><span class="line">            q-&gt;next = p;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Delete</span><span class="params">(LinkNode head)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    LinkNode p = head-&gt;next-&gt;next;</span><br><span class="line">    <span class="built_in">free</span>(head-&gt;next);</span><br><span class="line">    head-&gt;next = p;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> num;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; num;</span><br><span class="line">    LinkNode head = (LinkNode)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node));</span><br><span class="line">    head-&gt;next = <span class="literal">nullptr</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; num; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        LinkNode p = (LinkNode)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node));</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; p-&gt;x;</span><br><span class="line">        insert(p, head);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> s = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> temp = <span class="number">0</span>;</span><br><span class="line">        s += head-&gt;next-&gt;x;</span><br><span class="line">        temp += head-&gt;next-&gt;x;</span><br><span class="line">        Delete(head);</span><br><span class="line">        <span class="keyword">if</span>(head-&gt;next == <span class="literal">nullptr</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(num &gt; <span class="number">1</span>)</span><br><span class="line">                s -= temp;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        s += head-&gt;next-&gt;x;</span><br><span class="line">        temp += head-&gt;next-&gt;x;</span><br><span class="line">        Delete(head);</span><br><span class="line">        LinkNode p = (LinkNode)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node));</span><br><span class="line">        p-&gt;x = temp;</span><br><span class="line">        insert(p, head);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; s;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2019/03/12/vivo面试经验/">
+  vivo面试经验
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2019/03/12/vivo面试经验/"><span class="article-date">
+  2019-03-12
+</span>
+</a>
+        
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面试/">面试</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h4 id="一、反射"><a href="#一、反射" class="headerlink" title="一、反射"></a>一、反射</h4><p>可以在程序运行的时候获取到某个类里面的属性和方法等信息。</p>
+<h4 id="二、垃圾回收机制"><a href="#二、垃圾回收机制" class="headerlink" title="二、垃圾回收机制"></a>二、垃圾回收机制</h4><h5 id="1、引用计数算法"><a href="#1、引用计数算法" class="headerlink" title="1、引用计数算法"></a>1、引用计数算法</h5><p>为对象添加一个引用计数器，当对象增加一个引用时计数器加 1，引用失效时计数器减 1。引用计数为 0 的对象可被回收。</p>
+<h4 id="三、接口和抽象类的区别"><a href="#三、接口和抽象类的区别" class="headerlink" title="三、接口和抽象类的区别"></a>三、接口和抽象类的区别</h4><p><strong>1. 抽象类</strong></p>
+<p>抽象类和抽象方法都使用 abstract 关键字进行声明。抽象类一般会包含抽象方法，抽象方法一定位于抽象类中。</p>
+<p>抽象类和普通类最大的区别是，抽象类不能被实例化，需要继承抽象类才能实例化其子类。</p>
+<p><strong>2. 接口</strong></p>
+<p>接口是抽象类的延伸，在 Java 8 之前，它可以看成是一个完全抽象的类，也就是说它不能有任何的方法实现。</p>
+<p>从 Java 8 开始，接口也可以拥有默认的方法实现，这是因为不支持默认方法的接口的维护成本太高了。在 Java 8 之前，如果一个接口想要添加新的方法，那么要修改所有实现了该接口的类。</p>
+<p>接口的成员（字段 + 方法）默认都是 public 的，并且不允许定义为 private 或者 protected。</p>
+<p>接口的字段默认都是 static 和 final 的。</p>
+<h4 id="四、线程通信方式"><a href="#四、线程通信方式" class="headerlink" title="四、线程通信方式"></a>四、线程通信方式</h4><p>1、管道（pipeStream）</p>
+<p>2、线程间可以共享的内存区域（数据段、堆）</p>
+<p>3、文件（但是得通过加锁来确保线程同步）</p>
+<h4 id="五、如何实现异步调用"><a href="#五、如何实现异步调用" class="headerlink" title="五、如何实现异步调用"></a>五、如何实现异步调用</h4><p>通过回调函数和多线程实现</p>
+<h4 id="六、wait-sleep区别"><a href="#六、wait-sleep区别" class="headerlink" title="六、wait sleep区别"></a>六、wait sleep区别</h4><p>sleep()方法导致了程序暂停执行指定的时间，让出cpu给其他线程，当指定的时间到了又会自动恢复运行状态。在调用sleep()方法的过程中，线程不会释放对象锁。</p>
+<p>而当调用wait()方法的时候，线程会放弃对象锁，进入等待此对象的等待锁定池，只有针对此对象调用notify()方法后本线程才进入对象锁定池准备。</p>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2019/03/06/数据库设计与编程/">
+  数据库设计与编程
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2019/03/06/数据库设计与编程/"><span class="article-date">
+  2019-03-06
+</span>
+</a>
+        
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <p>mysql关键字的执行优先级：</p>
+<p> 先根据where 约束条件 将数据从表中加载到内存，所以where的条件作用在数据之前，然后根据字段进行分组，在内存中形成一张虚拟的表包含字段，如果此时有聚合函数则先执行聚合函数，并将聚合函数字段也加到虚拟的表中，接着进行having记录筛选，筛选完成后对数据进行去重，排序，限制等操作后进行显示。</p>
+<p>如图：</p>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
 
   
   
@@ -365,235 +680,6 @@
         
           <p>测试用例的设计方法：</p>
 <p><a href="https://www.cnblogs.com/molrang/p/6420918.html" target="_blank" rel="noopener">https://www.cnblogs.com/molrang/p/6420918.html</a></p>
-
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2019/03/03/Linux常用命令大全/">
-  Linux常用命令大全
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2019/03/03/Linux常用命令大全/"><span class="article-date">
-  2019-03-03
-</span>
-</a>
-        
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <p>Linux常用命令大全：<a href="https://www.cnblogs.com/ntal/p/9177454.html" target="_blank" rel="noopener">https://www.cnblogs.com/ntal/p/9177454.html</a></p>
-
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2019/03/03/二叉树的遍历/">
-  二叉树的遍历
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2019/03/03/二叉树的遍历/"><span class="article-date">
-  2019-03-03
-</span>
-</a>
-        
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <p>二叉树的遍历：将非线性结构转换为线性结构</p>
-<p>树的深度遍历：前，中，后序遍历；一般使用栈，栈的深度一般为树的深度</p>
-<p>树的层次遍历：使用队列实现</p>
-<p>中序、前序；中序、后序可唯一确定一棵二叉树</p>
-<p>前序和后序确定不了</p>
-
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2019/03/03/使用Django框架的forum开发的知识点总结/">
-  使用Django框架的forum开发的知识点总结
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2019/03/03/使用Django框架的forum开发的知识点总结/"><span class="article-date">
-  2019-03-03
-</span>
-</a>
-        
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/django/">django</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <p>1、django工程目录结构优化待读：<br><a href="http://www.loonapp.com/blog/11/" target="_blank" rel="noopener">http://www.loonapp.com/blog/11/</a><br>2、0.0.0.0代表网卡上所有的ip地址<br>3、ctrl + Tab切换浏览器tab<br>alt + Tab切换当前任务<br>ctrl + T新建一个窗口<br>ctrl + /注释<br>4、启动服务器：python manage.py runserver 0.0.0.0:8000<br>$ python manage.py migrate # 创建表结构<br>$ python manage.py makemigrations TestModel # 让 Django 知道我们在我们的模型有一些变更<br>$ python manage.py migrate TestModel # 创建表结构<br>5、为防止密码泄露，可使用变量代替密码，在本地配置环境变量，设置变量的值<br>6、git reset –hard FETCH_HEAD返回到上一次pull成功的状态<br>7、jason为数据格式，取代xml的存在，为轻量级的数据交换格式<br>ajax为快速创建动态网页、实现页面和web服务器之间数据的异步传输的技术<br>JQuery是一个兼容多个浏览器的javascript框架<br>8、在python中is判断地址是否相等，==判断值是否相等；在java中刚好与之相反<br>9、url路由问题，django当系统功能多样时，应使用分级路由<br>10、由于http协议本身是无状态的，cookie和session都可以记录客户端的状态<br>cookie是一种数据存储技术，将一段文本保存在客户端，cookie存在不可靠和不安全的特性<br>session是在服务器存储少量的信息，客户端发送请求时，在HTTP的请求头中，包含一行cookie信息。<br>服务器根据cookie信息得到session id，再根据session id找到对应的session，因此即使用户关闭了浏览器，<br>session仍然将保持到会话过期</p>
-<p> 11、django中model文件：<a href="https://www.cnblogs.com/pythonxiaohu/p/5807059.html" target="_blank" rel="noopener">https://www.cnblogs.com/pythonxiaohu/p/5807059.html</a></p>
-<p>12、<a href="http://www.cnblogs.com/yanglang/p/6697657.html%E8%A1%A8%E6%A0%BC" target="_blank" rel="noopener">http://www.cnblogs.com/yanglang/p/6697657.html表格</a><br>13、ajax异步机制<br>14、自定义中间件</p>
-
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2019/03/02/数据结构之排序/">
-  数据结构之排序
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2019/03/02/数据结构之排序/"><span class="article-date">
-  2019-03-02
-</span>
-</a>
-        
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <p><strong>冒泡排序：</strong>最稳定的排序，时间复杂度为O(n^2)</p>
-<p><strong>选择排序：</strong>不稳定的排序，时间复杂度为O(n^2)</p>
-<p><strong>插入排序：</strong>稳定的排序，时间复杂度为O(n^2)，当数组为有序时，排序最快</p>
-<p><strong>快速排序：</strong>不稳定的排序，时间复杂度为O(nlog₂n)，对于乱序排序时间最快</p>
-<p><strong>堆排序：</strong>等待复习中</p>
-<p>当原表有序或基本有序时，直接插入排序和冒泡排序将大大减少比较次数和移动记录的次数，时间复杂度可降至O（n）；</p>
-<p>而快速排序则相反，当原表基本有序时，将蜕化为冒泡排序，时间复杂度提高为O（n2）；</p>
-<p>原表是否有序，对简单选择排序、堆排序、归并排序和基数排序的时间复杂度影响不大。</p>
-<p>当原表有序时，快速排序为何会退化成冒泡排序呢？</p>
-
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2019/03/02/数据结构之树/">
-  数据结构之树
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2019/03/02/数据结构之树/"><span class="article-date">
-  2019-03-02
-</span>
-</a>
-        
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h4 id="树"><a href="#树" class="headerlink" title="树"></a>树</h4><p><strong>树的定义：</strong>除根结点之外的其余数据元素被分为m（m≥0）个互不相交的集合T1，T2，……Tm-1，其中每一个集合Ti（1&lt;=i&lt;=m）本身也是一棵树</p>
-<p><strong>节点的度：</strong>一个节点含有的子树的个数称为该节点的度；</p>
-<p><strong>树的度：</strong>一棵树中，最大的节点的度称为树的度；</p>
-<p><strong>节点的层次：</strong>从根开始定义起，根为第1层，根的子节点为第2层，以此类推；</p>
-<p><strong>树的高度或深度：</strong>从根节点到叶子节点的所有路径中最长的路径的边数</p>
-<h4 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h4><p><strong>定义：</strong>每个节点最多有两棵子树的树</p>
-<p><strong>1、一般二叉树的性质</strong><br>性质1、在非空二叉树的i层上，至多有2^i个结点。<br>性质2、高度为K的二叉树中，最多有2^(k+1)-1个结点。<br>性质3、对于任何一棵非空的二叉树，如果叶结点的个数为n0，度为2的结点个数为n2，则有n0=n2+1。</p>
-<p><strong>2、满二叉树</strong><br>定义：在一棵二叉树中。如果所有分支结点都存在左子树和右子树，并且所有叶子都在同一层上，这样的二叉树称为满二叉树。<br><strong>3、完全二叉树</strong><br>定义：对一颗具有n个结点的二叉树按层编号，如果编号为i(1&lt;=i&lt;=n)的结点与同样深度的满二叉树中编号为i的结点在二叉树中位置完全相同，则这棵二叉树称为完全二叉树。</p>
-<p><strong>a、</strong>具有n的结点的完全二叉树的深度为log2n+1.</p>
-<p>满二叉树是完全二叉树，对于深度为k的满二叉树中结点数量是2k-1 = n，完全二叉树结点数量肯定最多2k-1,同时完全二叉树倒数第二层肯定是满的（倒数第一层有结点，那么倒是第二层序号和满二叉树相同），所以完全二叉树的结点数最少大于少一层的满二叉树，为2k-1-1。</p>
-<p>根据上面推断得出： 2k-1-1&lt; n=&lt;2k-1，因为结点数Nn为整数那么n&lt;=2k-1可以推出n&lt;=2k ,n&gt;2k-1-1可以推出 n&gt;=2k-1,所以2k-1&lt;n&lt;=2k 。即可得k-1&lt;=log2n&lt;k 而k作为整数因此k=[log2n]+1。</p>
-<p><strong>b、</strong>如果有一颗有n个节点的完全二叉树的节点按层次序编号，对任一层的节点i（1&lt;=i&lt;=n）有</p>
-<p> 1.如果i=1，则节点是二叉树的根，无双亲，如果i&gt;1，则其双亲节点为[i/2]，向下取整</p>
-<p> 2.如果2i&gt;n那么节点i没有左孩子，否则其左孩子为2i</p>
-<p> 3.如果2i+1&gt;n那么节点没有右孩子，否则右孩子为2i+1</p>
-<h4 id="4、平衡二叉树："><a href="#4、平衡二叉树：" class="headerlink" title="4、平衡二叉树："></a>4、平衡二叉树：</h4><p><strong>定义：</strong>左右子树高度相差不超过1，且都为平衡二叉树。</p>
 
         
       </div>
