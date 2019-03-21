@@ -8,21 +8,21 @@
 
 <title>
   
-    服务器客户端相关知识
+    死锁
   
 </title>
 
-<meta name="description" content="多个进程监听同一个端口会出现端口占用的现象 12345678import sockets = socket.socket(socket.AF_INET, socket.SOCK_STREAM)s.bind((&apos;127.0.0.1&apos;, 8080))s.listen(5)while True:    sock, addr = s.accept() 如果重复启动这个服务器，那么就会出现端口被占用的问题：">
+<meta name="description" content="死锁产生的原因：因相互抢占不可同时共享的资源，导致循环等待的局面 死锁的产生的要素 1、互斥条件（资源不能同时被多个资源共享） 2、请求和保持（进程请求一个被另一个进程保持的资源） 3、不可剥夺（占有的资源不能被剥夺） 4、循环等待（形成相互等待的局面） 解决死锁的方法 1、设定获取资源顺序 2、设定等待获取锁的时限 3、死锁检测（银行家算法）">
 <meta property="og:type" content="article">
-<meta property="og:title" content="服务器客户端相关知识">
-<meta property="og:url" content="http://yoursite.com/2019/03/20/服务器客户端相关知识/index.html">
+<meta property="og:title" content="死锁">
+<meta property="og:url" content="http://yoursite.com/2019/03/21/死锁/index.html">
 <meta property="og:site_name" content="小宝宝的博客">
-<meta property="og:description" content="多个进程监听同一个端口会出现端口占用的现象 12345678import sockets = socket.socket(socket.AF_INET, socket.SOCK_STREAM)s.bind((&apos;127.0.0.1&apos;, 8080))s.listen(5)while True:    sock, addr = s.accept() 如果重复启动这个服务器，那么就会出现端口被占用的问题：">
+<meta property="og:description" content="死锁产生的原因：因相互抢占不可同时共享的资源，导致循环等待的局面 死锁的产生的要素 1、互斥条件（资源不能同时被多个资源共享） 2、请求和保持（进程请求一个被另一个进程保持的资源） 3、不可剥夺（占有的资源不能被剥夺） 4、循环等待（形成相互等待的局面） 解决死锁的方法 1、设定获取资源顺序 2、设定等待获取锁的时限 3、死锁检测（银行家算法）">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-20T02:19:38.889Z">
+<meta property="og:updated_time" content="2019-03-21T06:53:09.868Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="服务器客户端相关知识">
-<meta name="twitter:description" content="多个进程监听同一个端口会出现端口占用的现象 12345678import sockets = socket.socket(socket.AF_INET, socket.SOCK_STREAM)s.bind((&apos;127.0.0.1&apos;, 8080))s.listen(5)while True:    sock, addr = s.accept() 如果重复启动这个服务器，那么就会出现端口被占用的问题：">
+<meta name="twitter:title" content="死锁">
+<meta name="twitter:description" content="死锁产生的原因：因相互抢占不可同时共享的资源，导致循环等待的局面 死锁的产生的要素 1、互斥条件（资源不能同时被多个资源共享） 2、请求和保持（进程请求一个被另一个进程保持的资源） 3、不可剥夺（占有的资源不能被剥夺） 4、循环等待（形成相互等待的局面） 解决死锁的方法 1、设定获取资源顺序 2、设定等待获取锁的时限 3、死锁检测（银行家算法）">
 
 
   <link rel="alternative" href="/atom.xml" title="小宝宝的博客" type="application/atom+xml">
@@ -146,17 +146,17 @@
       
         <div style="max-width: 1000px">
       
-          <article id="post-服务器客户端相关知识" class="article article-type-post">
+          <article id="post-死锁" class="article article-type-post">
   
     <h1 class="article-header">
-      服务器客户端相关知识
+      死锁
     </h1>
   
   
 
   <div class="article-info">
     <span class="article-date">
-  2019-03-20
+  2019-03-21
 </span>
 
     
@@ -165,13 +165,16 @@
 
   </div>
   <div class="article-entry">
-    <p>多个进程监听同一个端口会出现端口占用的现象</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"></span><br><span class="line">s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</span><br><span class="line">s.bind((<span class="string">'127.0.0.1'</span>, <span class="number">8080</span>))</span><br><span class="line">s.listen(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    sock, addr = s.accept()</span><br></pre></td></tr></table></figure>
-<p>如果重复启动这个服务器，那么就会出现端口被占用的问题：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File "test.py", line 4, in &lt;module&gt;</span><br><span class="line">    s.bind(('127.0.0.1', 8080))</span><br><span class="line">OSError: [Errno 98] Address in use</span><br></pre></td></tr></table></figure>
-<p>服务器和客户端的通信实质为进程间的通信</p>
-<p>服务器的端口号一般不发生改变，而客户端是会发生改变的</p>
-<p>可以有多个客户端并发访问同一服务器</p>
+    <p>死锁产生的原因：因相互抢占不可同时共享的资源，导致循环等待的局面</p>
+<p>死锁的产生的要素</p>
+<p>1、互斥条件（资源不能同时被多个资源共享）</p>
+<p>2、请求和保持（进程请求一个被另一个进程保持的资源）</p>
+<p>3、不可剥夺（占有的资源不能被剥夺）</p>
+<p>4、循环等待（形成相互等待的局面）</p>
+<p>解决死锁的方法</p>
+<p>1、设定获取资源顺序</p>
+<p>2、设定等待获取锁的时限</p>
+<p>3、死锁检测（银行家算法）</p>
 
   </div>
   <footer class="article-footer">
