@@ -90,7 +90,7 @@
             
               <li class="archive-list-container">
                 <a href="javascript:;">归档</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">29</span></li></ul>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">30</span></li></ul>
               </li>
             
           
@@ -154,6 +154,81 @@
           <h1><a href="/archives/2019" class="archive-year">2019</a></h1>
         </div>
         <div class="post-list">
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2019/03/22/项目过程回顾/">
+  项目过程回顾
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2019/03/22/项目过程回顾/"><span class="article-date">
+  2019-03-22
+</span>
+</a>
+        
+
+        
+
+      </div>
+      <div class="article-entry">
+        
+          <h4 id="划龙舟项目"><a href="#划龙舟项目" class="headerlink" title="划龙舟项目"></a>划龙舟项目</h4><p><strong>需求分析：</strong></p>
+<p>1、控制龙舟的移动，躲避石头和拾取粽子</p>
+<p>2、撞上石头减分，拾到粽子加分，随着分数增加，游戏难度加大</p>
+<p>3、得分大于100时，游戏胜利，得分小于0时，游戏失败</p>
+<p>4、要可以显示开发者信息，游戏背景的滚动，以及背景音乐和音效的控制</p>
+<p><strong>项目背景：</strong></p>
+<p>1、学了一些概念理论性的知识，如四大组件，布局，组件，以及线程的概念</p>
+<p>2、实践过一些比较小型和琐碎的东西，比如说activity的跳转，多种布局，组件的实现，以及响应事件的实现</p>
+<p>3、对于动态的背景滚动以及分数的持续计算等逻辑控制，背景音乐和音效的控制基本不懂</p>
+<p><strong>UI和UE设计：</strong></p>
+<p>1、使用PS设计游戏首页，首页中点击按钮查看开发者信息、游戏规则、以及activity的跳转</p>
+<p>2、使用PS设计游戏页，游戏页上部分导航栏实现背景音乐和音效的开关</p>
+<p><strong>架构设计</strong></p>
+<p>1、用到的技术：activity，service实现背景音乐的播放，布局，surfaceview绘制机制lockcanvas  -绘制-unlockcanvas保证线程安全，按钮，弹出菜单组件实现信息的展示和开关，开启子线程来负责绘制，soundpool实现音效的播放，handler实现监听分数并进行相应的处理</p>
+<p>2、游戏中的对象</p>
+<p>石头：</p>
+<p>粽子：随机产生石头和粽子，实时更新物体的位置，随着分数越大，产生物体的间隔就越小</p>
+<p>龙舟：实现触摸控制，监听龙舟的位置变化，以及判断是否发生了碰撞，实现音效的播放和爆炸火花的图片合辑</p>
+<p>水草：将gif图片分为若干个图片的集合，每次绘制图片都将轮流切换</p>
+<p>背景图片：根据分数的大小来确定一次性移动的大小</p>
+<p>声音：设置声音类，实现service接口，通过在activity中调用startService()和stopService()来控制声音的开关</p>
+<p>onCreate()，onStartCommand()，onDestroy()，onBind()，onUnBind()</p>
+<p>音效：soundpool的初始化，使用map存储对应的音效</p>
+<p>绘图机制：surfaceview使用双缓冲技术的，它支持在子线程中绘制图像，有自己的表面，这样就不会阻塞主线程，在lockcanvas时使用了同步锁锁住画布</p>
+<p>view在主线程绘制，当绘制逻辑过于复杂时，容易造成卡顿</p>
+<p>handler处理机制：内部与looper关联，looper有messagequeue，这里向handler向自己发送消息，然后再用loop取出消息进行处理</p>
+<p>主线程发送消息给子线程：在主线程中创建handler机制，使用wait等待子线程创建looper和notifyall方法实现线程的同步</p>
+<p><strong>定义接口，代码编写</strong></p>
+<p>1、</p>
+<p><strong>可扩展性</strong></p>
+<p>1、</p>
+<p><strong>调优</strong></p>
+<p>1、使用surfaceview代替view，防止绘图卡顿</p>
+<h4 id="简易的bbs论坛"><a href="#简易的bbs论坛" class="headerlink" title="简易的bbs论坛"></a>简易的bbs论坛</h4><p>1、需求分析：用户登录，注册，注销，帖子编辑，发表，查看，帖子列表</p>
+<p>2、数据库设计</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">a[a] --&gt; b[b]</span><br><span class="line">a[a] --&gt; c[c]</span><br></pre></td></tr></table></figure>
+<p>用户表</p>
+<p>帖子表</p>
+<p>3、ajax:</p>
+<p>异步通过多线程或者回调函数实现</p>
+<p>回调：类A的a()方法调用类B的b()方法<br>类B的b()方法执行完毕主动调用类A的callback()方法</p>
+<p>中间件：</p>
+
+        
+      </div>
+    </div>
+
+  
+
+  
+  
     
   
 
@@ -524,82 +599,6 @@
 <p>现在把三次握手改成仅需要两次握手，死锁是可能发生的。作为例子，考虑计算机S和C之间的通信，假定C给S发送一个连接请求分组，S收到了这个分组，并发 送了确认应答分组。按照两次握手的协定，S认为连接已经成功地建立了，可以开始发送数据分组。可是，C在S的应答分组在传输中被丢失的情况下，将不知道S 是否已准备好，不知道S建立什么样的序列号，C甚至怀疑S是否收到自己的连接请求分组。在这种情况下，C认为连接还未建立成功，将忽略S发来的任何数据分 组，只等待连接确认应答分组。而S在发出的分组超时后，重复发送同样的分组。这样就形成了死锁。</p>
 <p>【问题4】如果已经建立了连接，但是客户端突然出现故障了怎么办？</p>
 <p>TCP还设有一个保活计时器，显然，客户端如果出现故障，服务器不能一直等下去，白白浪费资源。服务器每收到一次客户端的请求后都会重新复位这个计时器，时间通常是设置为2小时，若两小时还没有收到客户端的任何数据，服务器就会发送一个探测报文段，以后每隔75分钟发送一次。若一连发送10个探测报文仍然没反应，服务器就认为客户端出了故障，接着就关闭连接。<br>转载自：<a href="https://blog.csdn.net/qq_38950316/article/details/81087809" target="_blank" rel="noopener">https://blog.csdn.net/qq_38950316/article/details/81087809</a> </p>
-
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2019/03/17/测试面试知识点补充/">
-  测试面试知识点补充
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2019/03/17/测试面试知识点补充/"><span class="article-date">
-  2019-03-17
-</span>
-</a>
-        
-
-        
-
-      </div>
-      <div class="article-entry">
-        
-          <p>一、测试用例设计方法</p>
-<p>黑盒测试用例（优先）+白盒测试用例（补充）=完整测试用例</p>
-<p>黑盒测试用例的编写</p>
-<p>1）等价类划分</p>
-<p>2）边界值分析法</p>
-<p>3）因果图\判定表法：各种独立输入的组合导致各种独立输出</p>
-<p>4）场景法：</p>
-<p>用户正确操作的业务过程—验证软件的业务功能是否正确实现</p>
-<p>模拟用户错误操作的情形—验证软件的异常处理能力（健壮性）</p>
-<p>5）错误推测法：一般根据以往经验编写测试用例，<a href="https://blog.csdn.net/hellofeiya/article/details/21826097" target="_blank" rel="noopener">https://blog.csdn.net/hellofeiya/article/details/21826097</a></p>
-<p>6）探索测试</p>
-<p>白盒测试用例的编写</p>
-<p>1）判定覆盖</p>
-<p>2）条件覆盖</p>
-<p>3）条件组合覆盖</p>
-<p>二、测试案例：<a href="https://www.cnblogs.com/xh0102/p/8799061.html" target="_blank" rel="noopener">https://www.cnblogs.com/xh0102/p/8799061.html</a></p>
-<p><strong>1、安全测试</strong></p>
-<ol>
-<li>检查登录生成的Cookie是否为httpOnly，这是为了防止XSS（跨站脚本攻击），窃取cooki内容。</li>
-<li>用户名和密码的的输入框，应该禁止输入脚本 （防止SQL注入）</li>
-<li>错误登录的次数限制（防止暴力登录）</li>
-<li>用户名和密码是否通过加密的方式，发送给服务器</li>
-<li>用户明和密码的验证，应该是服务器端验证，而不能单单是在客户端用JavaScript</li>
-<li>考虑是否支持多用户在同一机器上登录</li>
-<li>考虑同一用户在多台机器上运行</li>
-<li>敏感词汇的检查</li>
-<li>被删除、加密、授权的数据是不允许被查出来的（淘宝！）</li>
-</ol>
-<p><strong>2. 可用性测试</strong></p>
-<ol>
-<li><p>是否可以全用键盘操作——快捷键</p>
-</li>
-<li><p>输入用户名、密码后，按回车能否登录</p>
-</li>
-</ol>
-<p>三、测试对象</p>
-<p>1.用户需求文档（ps:理解软件需求，对于用户测试人员TE比较重要）</p>
-<p>2.软件概要设计（设计文档）</p>
-<p>3.软件源代码</p>
-<p>4.数据</p>
-<p>5.可运行程序</p>
-<p>6.软件运行环境（ps:测试提交Bug时，应该注明当前环境。例如window7+64 IE10 1920*1080之类的（兼容性问题））</p>
-<p>即：源程序，目标程序，数据及相关文档</p>
 
         
       </div>
