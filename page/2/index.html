@@ -90,7 +90,7 @@
             
               <li class="archive-list-container">
                 <a href="javascript:;">归档</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">38</span></li></ul>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">38</span></li></ul>
               </li>
             
           
@@ -143,6 +143,44 @@
         <div style="max-width: 1000px">
       
           
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2019/03/22/字节跳动春招题之校正字符串/">
+  字节跳动春招题之校正字符串
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2019/03/22/字节跳动春招题之校正字符串/"><span class="article-date">
+  2019-03-22
+</span>
+</a>
+        
+
+        
+
+      </div>
+      <div class="article-entry">
+        
+          <p>输入一串字母，如果存在AAA型的字符串则改为AA型，如果存在AABB型的字符串则去掉第二对中的第一个字符变为AAB，举个栗子helllo修改为hello，wooooooc修改为wooc，aaabb应修改为aab</p>
+<p>解题思路：</p>
+<p>由于考虑到删除次数较多，因此这里使用链表来存储字符串，判断是否存在相应类型的字符串，如果存在执行相应删除操作</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span>&#123;</span></span><br><span class="line">	<span class="keyword">char</span> x;</span><br><span class="line">	Node* next;</span><br><span class="line">&#125;*LinkNode;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Delete</span><span class="params">(LinkNode p)</span></span></span><br><span class="line"><span class="function"></span>&#123;<span class="comment">//删除从p节点开始的第三个节点 </span></span><br><span class="line">	LinkNode temp = p-&gt;next-&gt;next;</span><br><span class="line">	p-&gt;next-&gt;next = temp-&gt;next;</span><br><span class="line">	<span class="built_in">free</span>(temp);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	LinkNode h = (LinkNode)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node)); <span class="comment">//设置头节点 </span></span><br><span class="line">	<span class="built_in">string</span> s;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; s;</span><br><span class="line">	LinkNode p = h;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++)</span><br><span class="line">	&#123;<span class="comment">//创建链表 </span></span><br><span class="line">		p-&gt;next = (LinkNode)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node));</span><br><span class="line">		p-&gt;next-&gt;x = s[i];</span><br><span class="line">		p = p-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">	p-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">	p = h-&gt;next;</span><br><span class="line">	<span class="keyword">while</span>(<span class="literal">true</span>)</span><br><span class="line">	&#123;<span class="comment">//开始查错</span></span><br><span class="line">		<span class="comment">/*判断是否存在AAA型的字符串，存在则删除第三个字符*/</span> </span><br><span class="line">		<span class="keyword">if</span>(p == <span class="literal">NULL</span> || p-&gt;next == <span class="literal">NULL</span> || p-&gt;next-&gt;next == <span class="literal">NULL</span>)</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">char</span> a, b, c, d;</span><br><span class="line">		a = p-&gt;x;</span><br><span class="line">		b = p-&gt;next-&gt;x;</span><br><span class="line">		c = p-&gt;next-&gt;next-&gt;x;</span><br><span class="line">		<span class="keyword">if</span>(a == b &amp;&amp; b == c)</span><br><span class="line">		&#123;</span><br><span class="line">			Delete(p);</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">/*判断是否存在AABB型的字符串，存在则删除第三个字符串*/</span> </span><br><span class="line">		<span class="keyword">if</span>(p-&gt;next-&gt;next-&gt;next == <span class="literal">NULL</span>)</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		d = p-&gt;next-&gt;next-&gt;next-&gt;x;</span><br><span class="line">		<span class="keyword">if</span>(a == b &amp;&amp; d == c)</span><br><span class="line">		&#123;</span><br><span class="line">			Delete(p);</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		p = p-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/*输出修正后的字符串*/</span> </span><br><span class="line">	<span class="keyword">for</span>(p = h; p-&gt;next != <span class="literal">NULL</span>; p = p-&gt;next)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; p-&gt;next-&gt;x;</span><br><span class="line">	&#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
 
   
   
@@ -572,59 +610,6 @@
 <p>5.可运行程序</p>
 <p>6.软件运行环境（ps:测试提交Bug时，应该注明当前环境。例如window7+64 IE10 1920*1080之类的（兼容性问题））</p>
 <p>即：源程序，目标程序，数据及相关文档</p>
-
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2019/03/17/http协议/">
-  http协议
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2019/03/17/http协议/"><span class="article-date">
-  2019-03-17
-</span>
-</a>
-        
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Http/">Http</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h4 id="http请求"><a href="#http请求" class="headerlink" title="http请求"></a>http请求</h4><p>1、请求行：</p>
-<p>请求方式（get,post），</p>
-<p>请求的资源路径（如果是get请求，还包含参数），</p>
-<p>协议版本号</p>
-<p>2、请求头：</p>
-<p>user-agent: 如：mobile；</p>
-<p>浏览器:chorme；</p>
-<p>connection:如close和keep alive；</p>
-<p>可以解析的文件类型</p>
-<p>3、请求体：</p>
-<p>存放post中的内容</p>
-<h4 id="http响应"><a href="#http响应" class="headerlink" title="http响应"></a>http响应</h4><p>1、状态行：协议版本；状态码；</p>
-<p>2、响应头：返回的文件类型，响应体大小</p>
-<p>3、响应体：例如HTML文件</p>
 
         
       </div>

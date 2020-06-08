@@ -90,7 +90,7 @@
             
               <li class="archive-list-container">
                 <a href="javascript:;">归档</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">38</span></li></ul>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">38</span></li></ul>
               </li>
             
           
@@ -151,6 +151,67 @@
       
       <section class="archives-wrap">
         <div class="archive-year-wrap">
+          <h1><a href="/archives/2020" class="archive-year">2020</a></h1>
+        </div>
+        <div class="post-list">
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2020/06/07/接口测试相关/">
+  接口测试相关
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2020/06/07/接口测试相关/"><span class="article-date">
+  2020-06-07
+</span>
+</a>
+        
+
+        
+
+      </div>
+      <div class="article-entry">
+        
+          <p>一、开发项目相关</p>
+<p>1、html中input的type为submit、button的区别</p>
+<p>1）submit：点击默认走form表单中的提交</p>
+<p>2）button一般走onclick响应事件，一般ajax使用这个</p>
+<p>2、html不区分大小写</p>
+<p>3、后台通过request获取前台标签值时，一般用标签的name获取</p>
+<p>4、ajax一般用id获取</p>
+<p>二、手动接口测试</p>
+<p>1、fiddler抓包，fiddler为代理，IP为本机IP，端口默认为8888，这里端口可以修改成自己想要的，重启fiddler即可</p>
+<p>2、若要抓其他机器的包，需要将其他机器的代理服务器IP、端口设置为fiddler所在电脑的IP，以及端口</p>
+<p>3、若需要抓localhost或者127.0.0.1的包，由于这种IP的包，默认不会通过代理，所以此时要在浏览器代理设置中将IP改为127.0.0.1，端口设置为fiddler应用的端口</p>
+<p>4、ruquest中content-type：表示客户端发送的数据是什么类型；当ajax实现时，尤其要注意（因为后台需要解析数据）</p>
+<p>response中content-type：表示服务器返回的是什么类型的数据</p>
+<p>三、使用python写接口测试函数</p>
+<p>1、接口测试类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#将字典转换成json,格式化json字符串</span><br><span class="line">import json</span><br><span class="line">data =&#123;&quot;1&quot;:&quot;你&quot;, &quot;2&quot;:&#123;&quot;1&quot;:&quot;时&quot;,&quot;2&quot;:&quot;ss&quot;&#125;,&quot;3&quot;:&quot;mmm&quot;&#125;</span><br><span class="line">print(data)</span><br><span class="line">data = json.dumps(data, indent=2, sort_keys=True)</span><br><span class="line">print(type(data))</span><br><span class="line">print(data)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#对接口测试的简单封装</span></span><br><span class="line"><span class="comment">#一、封装成类</span></span><br><span class="line"><span class="comment"># 1、将post请求封装</span></span><br><span class="line"><span class="comment"># 2、将get请求封装</span></span><br><span class="line"><span class="comment"># 3、根据请求类型发送请求</span></span><br><span class="line"><span class="comment"># 4、初始化类将发送请求</span></span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RunMain</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, url,method, data=None)</span>:</span></span><br><span class="line">        self.res = run_main(url,method, data)  <span class="comment">#self为实例变量，self.变量定义的是实例变量，方便类中其他函数使用，以及外部使用</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">send_post</span><span class="params">(self,url, data)</span>:</span></span><br><span class="line">        res = requests.post(url=url,data=data)</span><br><span class="line">        <span class="keyword">return</span> json.dumps(res, indent=<span class="number">2</span>, sort_keys=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">send_get</span><span class="params">(self, url,data)</span>:</span></span><br><span class="line">        res = requests.get(url=url, data=data)</span><br><span class="line">        <span class="keyword">return</span> json.dumps(res, indent=<span class="number">2</span>, sort_keys=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run_main</span><span class="params">(self, url,method, data)</span>:</span></span><br><span class="line">        res = <span class="literal">None</span></span><br><span class="line">        <span class="keyword">if</span> method == <span class="string">'GET'</span>:</span><br><span class="line">            res = self.send_get(url, data)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            res = self.send_post(url,data)</span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">        url=<span class="string">'1'</span></span><br><span class="line">        method = <span class="string">'2'</span></span><br><span class="line">        data = <span class="string">'3'</span></span><br><span class="line">        run = RunMain(method, url, data)</span><br><span class="line">        print(run.res)</span><br></pre></td></tr></table></figure>
+<p>2、使用unittest组织测试用例</p>
+
+        
+      </div>
+    </div>
+
+  
+
+  
+  
+    
+      
+        </div></section>
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
           <h1><a href="/archives/2019" class="archive-year">2019</a></h1>
         </div>
         <div class="post-list">
@@ -182,6 +243,10 @@
 <p>1、在本地建文件夹，并在该文件夹中执行git init，让git认识该文件夹</p>
 <p>2、执行之后再执行 git remote add origin <a href="https://github.com/illovey/Defense-Management-System.git和远程仓库关联" target="_blank" rel="noopener">https://github.com/illovey/Defense-Management-System.git和远程仓库关联</a></p>
 <p>3、接下来可以使用git add -A从工作区添加到暂存区、git commit将暂存区的提交到本地版本库、git push将本地版本库的分支推送到远程服务器上对应的分支</p>
+<p>用git hexo管理博客</p>
+<p>1、进入博客所在的文件夹</p>
+<p>执行hexo new “博客的名字”，创建一篇博客</p>
+<p>2、写好后执行hexo g -d，生成html，并将博客推送到远程仓库，实现浏览器可访问</p>
 
         
       </div>
@@ -547,42 +612,6 @@
 <p>回调：类A的a()方法调用类B的b()方法<br>类B的b()方法执行完毕主动调用类A的callback()方法</p>
 <p>中间件：</p>
 
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2019/03/22/字节跳动春招题之校正字符串/">
-  字节跳动春招题之校正字符串
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2019/03/22/字节跳动春招题之校正字符串/"><span class="article-date">
-  2019-03-22
-</span>
-</a>
-        
-
-        
-
-      </div>
-      <div class="article-entry">
-        
-          <p>输入一串字母，如果存在AAA型的字符串则改为AA型，如果存在AABB型的字符串则去掉第二对中的第一个字符变为AAB，举个栗子helllo修改为hello，wooooooc修改为wooc，aaabb应修改为aab</p>
-<p>解题思路：</p>
-<p>由于考虑到删除次数较多，因此这里使用链表来存储字符串，判断是否存在相应类型的字符串，如果存在执行相应删除操作</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span>&#123;</span></span><br><span class="line">	<span class="keyword">char</span> x;</span><br><span class="line">	Node* next;</span><br><span class="line">&#125;*LinkNode;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Delete</span><span class="params">(LinkNode p)</span></span></span><br><span class="line"><span class="function"></span>&#123;<span class="comment">//删除从p节点开始的第三个节点 </span></span><br><span class="line">	LinkNode temp = p-&gt;next-&gt;next;</span><br><span class="line">	p-&gt;next-&gt;next = temp-&gt;next;</span><br><span class="line">	<span class="built_in">free</span>(temp);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	LinkNode h = (LinkNode)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node)); <span class="comment">//设置头节点 </span></span><br><span class="line">	<span class="built_in">string</span> s;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; s;</span><br><span class="line">	LinkNode p = h;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++)</span><br><span class="line">	&#123;<span class="comment">//创建链表 </span></span><br><span class="line">		p-&gt;next = (LinkNode)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node));</span><br><span class="line">		p-&gt;next-&gt;x = s[i];</span><br><span class="line">		p = p-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">	p-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">	p = h-&gt;next;</span><br><span class="line">	<span class="keyword">while</span>(<span class="literal">true</span>)</span><br><span class="line">	&#123;<span class="comment">//开始查错</span></span><br><span class="line">		<span class="comment">/*判断是否存在AAA型的字符串，存在则删除第三个字符*/</span> </span><br><span class="line">		<span class="keyword">if</span>(p == <span class="literal">NULL</span> || p-&gt;next == <span class="literal">NULL</span> || p-&gt;next-&gt;next == <span class="literal">NULL</span>)</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">char</span> a, b, c, d;</span><br><span class="line">		a = p-&gt;x;</span><br><span class="line">		b = p-&gt;next-&gt;x;</span><br><span class="line">		c = p-&gt;next-&gt;next-&gt;x;</span><br><span class="line">		<span class="keyword">if</span>(a == b &amp;&amp; b == c)</span><br><span class="line">		&#123;</span><br><span class="line">			Delete(p);</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">/*判断是否存在AABB型的字符串，存在则删除第三个字符串*/</span> </span><br><span class="line">		<span class="keyword">if</span>(p-&gt;next-&gt;next-&gt;next == <span class="literal">NULL</span>)</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		d = p-&gt;next-&gt;next-&gt;next-&gt;x;</span><br><span class="line">		<span class="keyword">if</span>(a == b &amp;&amp; d == c)</span><br><span class="line">		&#123;</span><br><span class="line">			Delete(p);</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		p = p-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/*输出修正后的字符串*/</span> </span><br><span class="line">	<span class="keyword">for</span>(p = h; p-&gt;next != <span class="literal">NULL</span>; p = p-&gt;next)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; p-&gt;next-&gt;x;</span><br><span class="line">	&#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
         
       </div>
     </div>
