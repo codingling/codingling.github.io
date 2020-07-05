@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="小宝宝的博客">
 <meta property="og:description" content="一、开发项目相关 1、html中input的type为submit、button的区别 1）submit：点击默认走form表单中的提交 2）button一般走onclick响应事件，一般ajax使用这个 2、html不区分大小写 3、后台通过request获取前台标签值时，一般用标签的name获取 4、ajax一般用id获取 二、手动接口测试 1、fiddler抓包，fiddler为代理，IP为">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-06-13T03:22:39.699Z">
+<meta property="og:updated_time" content="2020-06-15T14:23:02.484Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="接口测试相关">
 <meta name="twitter:description" content="一、开发项目相关 1、html中input的type为submit、button的区别 1）submit：点击默认走form表单中的提交 2）button一般走onclick响应事件，一般ajax使用这个 2、html不区分大小写 3、后台通过request获取前台标签值时，一般用标签的name获取 4、ajax一般用id获取 二、手动接口测试 1、fiddler抓包，fiddler为代理，IP为">
@@ -214,6 +214,21 @@
 <p>3）如果携带 Access Token 访问需要认证的接口时鉴权失败（例如返回 401 错误），则客户端使用 Refresh Token 向刷新接口申请新的 Access Token</p>
 <p>4）如果 Refresh Token 没有过期，服务端向客户端下发新的 Access Token</p>
 <p>5）客户端使用新的 Access Token 访问需要认证的接口</p>
+<p>8、python中变量的作用域</p>
+<p>在一个类中的方法初始化另外一个类是会报错的</p>
+<p>即使在类的初始化函数中初始化另外一个类也会报错</p>
+<p>但是在类里面的非方法区域进行初始化却不会报错</p>
+<p>三个问题</p>
+<p>1、不懂啥时候抓包，如何看接口文档    —当接口文档给的数据不全面时，比如说返回数据的组织形式等</p>
+<p>2、封装不熟悉，且需要再下次练习时，进行改进</p>
+<p>3、语法不清楚，如json.loads()、json.dumps()分别代表什么含义，以及作用域和什么时候该用self.问题</p>
+<p>4、断言、环境准备，数据清理问题，即unnitest的使用</p>
+<p>解答：</p>
+<p>1）python 类变量</p>
+<p>类变量在类的命名空间中，不需要使用.访问；区别于对象命名空间，在类中使用self.访问</p>
+<p>但在外面，需要使用.访问</p>
+<p>可以使用<code>.__dict__</code>来打印命名空间</p>
+<p>通过实例.类变量去修改类变量的值，类.类变量的值不会被修改</p>
 
   </div>
   <footer class="article-footer">
